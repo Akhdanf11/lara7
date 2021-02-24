@@ -7,8 +7,9 @@
             <div class="card">
                 <div class="card-header">Update Post: {{  $post->title }}</div>
                 <div class="card-body">
-                    <form action="/posts/{{ $post->slug }}/edit" method="get">
+                    <form action="/posts/{{ $post->slug }}/update" method="post">
                         @csrf
+                        @method('patch')
                         <div class="form-group">
                             <label for="title">Title</label>
                             <input type="text" name="title" id="title" value="{{ old('title') ?? $post->title }}" class="form-control @error('title') is-invalid @enderror">

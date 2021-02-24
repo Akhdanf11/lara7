@@ -68,10 +68,16 @@ class PostController extends Controller
     }
 
     public function update(Post $post){
+
         $attr = request()->validate([
             'title' => 'required|min:3',
             'body' => 'required',
         ]);
+
+        $post->update($attr);
+
+        return back();
+
     }
 
 }
